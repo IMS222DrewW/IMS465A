@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: Assembly-CSharp::Block
   BlockName: StoneBlock
-  BlockObject: {fileID: 2272211524165187254, guid: 56b45ac292d994a4b983d58cff118b27, type: 3}
+  BlockObject: {fileID: 5220391399959781564, guid: afbfa7ff903fef446a6287f216ea1e61, type: 3}
   ItemsNeededForBuildingBlock: Stone
   AmmountOfItemNeeded: 2

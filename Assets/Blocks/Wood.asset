@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: Assembly-CSharp::Block
   BlockName: Wood
-  BlockObject: {fileID: 1539460419950920312, guid: 30e3f163c44de7a438f8fd790718563e, type: 3}
+  BlockObject: {fileID: 455821777678846170, guid: 62a0972d8f57585489b697acd78c4791, type: 3}
   ItemsNeededForBuildingBlock: Wood
   AmmountOfItemNeeded: 3

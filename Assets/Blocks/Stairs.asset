@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stairs
   m_EditorClassIdentifier: Assembly-CSharp::Block
   BlockName: Stairs
-  BlockObject: {fileID: 8883333752858309065, guid: 76fdc28662b376642b70ec93007c1504, type: 3}
+  BlockObject: {fileID: 4252014857287277537, guid: 7a3c70029e5408147867383ae4c64b71, type: 3}
   ItemsNeededForBuildingBlock: 
   AmmountOfItemNeeded: 0

@@ -21,6 +21,12 @@ public class BuildSystem : MonoBehaviour
     private float holdTimer = 0f;
     private bool actionTriggered = false;
 
+    private GameObject blockBeingDeleted;
+    private Quaternion originalRotation;
+
+    [SerializeField] private float wiggleSpeed = 15f;
+    [SerializeField] private float wiggleAmount = 10f;
+
     [SerializeField] private float buildDistance = 5f;
     [SerializeField] private float interactRange = 3f;
 
@@ -60,8 +66,14 @@ public class BuildSystem : MonoBehaviour
         {
             holdTimer += Time.deltaTime;
 
+            if (holdTimer < holdDuration)
+            {
+                WiggleBlock();
+            }
+
             if (holdTimer >= holdDuration && !actionTriggered)
             {
+                StopWiggle();
                 DestroyBlock();
                 actionTriggered = true;
             }
@@ -70,6 +82,7 @@ public class BuildSystem : MonoBehaviour
         {
             holdTimer = 0f;
             actionTriggered = false;
+            StopWiggle();
         }
         HighlightBlock();
         HandleScrollWheel();
@@ -164,6 +177,38 @@ public class BuildSystem : MonoBehaviour
             {
                 Destroy(hitInfo.transform.gameObject);
             }
+        }
+    }
+
+    void WiggleBlock()
+    {
+        if (Physics.Raycast(shootingPoint.position, shootingPoint.forward, out RaycastHit hitInfo, buildDistance))
+        {
+            if (hitInfo.transform.CompareTag("Block"))
+            {
+                GameObject targetBlock = hitInfo.transform.gameObject;
+
+                if (blockBeingDeleted != targetBlock)
+                {
+                    StopWiggle();
+
+                    blockBeingDeleted = targetBlock;
+                    originalRotation = targetBlock.transform.rotation;
+                }
+
+                float wiggle = Mathf.Sin(Time.time * wiggleSpeed) * wiggleAmount;
+
+                targetBlock.transform.rotation = originalRotation * Quaternion.Euler(0, wiggle, wiggle);
+            }
+        }
+    }
+
+    void StopWiggle()
+    {
+        if (blockBeingDeleted != null)
+        {
+            blockBeingDeleted.transform.rotation = originalRotation;
+            blockBeingDeleted = null;
         }
     }
 
