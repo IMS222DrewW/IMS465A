@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bec07a5f033ff048b80c90c3ec4a61f, type: 3}
   m_Name: Stairs
   m_EditorClassIdentifier: Assembly-CSharp::Block
-  BlockName: Stairs
-  BlockObject: {fileID: 4252014857287277537, guid: 7a3c70029e5408147867383ae4c64b71, type: 3}
+  BlockName: WoolStairs
+  BlockObject: {fileID: 7318163074623174152, guid: a57b078af442ad841b09365722d2d3a1, type: 3}
   ItemsNeededForBuildingBlock: 
   AmmountOfItemNeeded: 0
